@@ -1,0 +1,37 @@
+{
+  "_comment": "monitors: workspace ids each monitor's bar shows. workspaces: per-id 'active'/'inactive' symbol strings (default = the number). layoutNames maps hyprland active_keymap names to short labels. apps: commands launched floating. floatSize: [w,h].",
+  "_number sets": {
+      "1": "Ⅰ, Ⅱ, Ⅲ, Ⅳ, Ⅴ, Ⅵ, Ⅶ, Ⅷ, Ⅸ, Ⅹ",
+      "2": "①, ②, ③, ④, ⑤, ⑥, ⑦, ⑧, ⑨, ⑩"
+  },
+  "monitors": {
+    "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  },
+
+  "workspaces": {
+    "1":  { "active": "1",  "inactive": "1"  },
+    "2":  { "active": "2",  "inactive": "2"  },
+    "3":  { "active": "3",  "inactive": "3"  },
+    "4":  { "active": "4",  "inactive": "4"  },
+    "5":  { "active": "5",  "inactive": "5"  },
+    "6":  { "active": "6",  "inactive": "6"  },
+    "7":  { "active": "7",  "inactive": "7"  },
+    "8":  { "active": "8",  "inactive": "8"  },
+    "9":  { "active": "9",  "inactive": "9"  },
+    "10": { "active": "10", "inactive": "10"  } 
+  },
+
+  "layoutNames": {
+    "English (UK)": "GB",
+    "Norwegian": "NO"
+  },
+
+  "apps": {
+    "bluetooth": "bluetui",
+    "wifi": "nmtui",
+    "sound": "wiremix",
+    "battery": "btop"
+  },
+
+  "floatSize": [1000, 600]
+}

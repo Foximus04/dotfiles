@@ -1,0 +1,16 @@
+{
+  "background": "#080008",
+  "foreground": "#f5c2ff",
+  "accent": "#e645ff",
+  "muted": "#6c7086",
+  "urgent": "#ff007b",
+  "fontText": "JetBrainsMono Nerd Font",
+  "fontIcon": "JetBrainsMono Nerd Font Mono",
+  "fontSize": 12,
+  "iconSize": 12,
+  "barHeight": 24,
+  "padding": 8,
+  "spacing": 10,
+  "radius": 1,
+  "inactiveOpacity": 0.45
+}

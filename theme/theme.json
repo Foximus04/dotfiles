@@ -1,0 +1,27 @@
+{
+  "_comment": "Master theme. Edit this file, then run ~/.config/theme/apply.sh to propagate font + colors into kitty, mako, hyprlock, quickshell, gtk, fontconfig, and hyprland.",
+
+  "font": {
+    "mono":       "JetBrainsMono Nerd Font",
+    "monoStrict": "JetBrainsMono Nerd Font Mono",
+    "emoji":      "Apple Color Emoji",
+    "size": { "terminal": 10, "bar": 12, "notify": 11, "gtk": 11 }
+  },
+  "general": {
+    "corner_radius": 0,
+    "border_size": 1
+  },
+
+  "color": {
+    "outlines": "#fefaff",
+    "background": "#080008",
+
+    "foreground": "#f5c2ff",
+    "accent":     "#e645ff",
+    "muted":      "#6c7086",
+    "urgent":     "#ff007b"
+  },
+  "wallpaper": {
+    "dir": "/home/fox/Pictures/rainworld"
+  }
+}
