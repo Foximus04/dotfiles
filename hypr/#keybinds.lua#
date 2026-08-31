@@ -1,0 +1,140 @@
+local function launch(name, opts)
+	local program = name or {}
+	local opts = opts or {}
+
+	if opts.focus == true then
+		for _, w in ipairs(hl.get_windows() or {}) do
+			if w.class and string.lower(w.class) == string.lower(name) then
+				hl.dispatch(hl.dsp.focus({ window = w }))
+				return
+			end
+		end
+	end
+
+	if opts.tui == true then
+		program = "kitty --app-id=" .. name .. " -e " .. name
+	end
+
+	hl.dispatch(hl.dsp.exec_cmd(program, opts.rules))
+end
+
+local function send_shortcut_once(mods, key)
+	return function()
+		hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "down", window = "activewindow" }))
+
+		hl.timer(function()
+			hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "up", window = "activewindow" }))
+		end, { timeout = 50, type = "oneshot" })
+	end
+end
+
+local function web_shortcut(url)
+  if hl.get_active_window().class == "firefox" then
+	  launch("firefox " .. url)
+    return
+  end
+	launch("firefox --new-window " .. url)
+end
+
+
+local float_size = {"(monitor_w*0.5)", "(monitor_h*0.5)"}
+
+
+-- Launch ---------------------------------------------------------------------:
+-- General:
+hl.bind("SUPER + RETURN", function()          launch("kitty") end)
+hl.bind("SUPER + SHIFT + RETURN", function () launch("kitty",   { rules = {float = true, size = float_size }, }) end)
+hl.bind("SUPER + SHIFT + E", function()       launch("yazi",    { tui   = true, rules = { float = true, size = float_size }, }) end)
+hl.bind("SUPER + E", function()     launch("yazi",              { tui   = true, })  end)
+hl.bind("SUPER + M", function()     launch("spotify",           { focus = true, })  end)
+hl.bind("SUPER + B", function()     launch("firefox") end)      
+hl.bind("SUPER + D", function()     launch("vesktop",           { focus = true, rules = { workspace = "special:scratchpad" }, }) end)
+hl.bind("SUPER + SLASH", function() launch("bitwarden-desktop", { focus = true, rules = { float = true }, }) end)
+-- Control:
+hl.bind("SUPER + CTRL + A", function() launch("wiremix",        { tui = true, focus = true, rules = { float = true, size = float_size }, }) end)
+hl.bind("SUPER + CTRL + B", function() launch("bluetui",        { tui = true, focus = true, rules = { float = true, size = float_size }, }) end)
+hl.bind("SUPER + CTRL + W", function() launch("nmtui",          { tui = true, focus = true, rules = { float = true, size = float_size }, }) end)
+hl.bind("SUPER + CTRL + T", function() launch("btop",           { tui = true, focus = true, rules = { float = true, size = float_size }, }) end)
+
+-- Web shortcuts --------------------------------------------------------------:
+hl.bind("SUPER + F1", function() web_shortcut("https://wiki.hypr.land/Configuring/Basics/Dispatchers/") end)
+hl.bind("SUPER + F2", function() web_shortcut("https://vim.rtorr.com/") end)
+
+-- Window controls ------------------------------------------------------------:
+  hl.bind("SUPER + F",        hl.dsp.window.fullscreen({ mode = "maximized",  action = "toggle" }))
+hl.bind("SUPER + SHIFT + F",  hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind("SUPER + W",          hl.dsp.window.close())
+-- hl.bind("CTRL + ALT + DELETE", "omarchy-hyprland-window-close-all")
+
+hl.bind("SUPER + J",         hl.dsp.layout("togglesplit"))
+hl.bind("SUPER + P",         hl.dsp.window.pseudo())
+hl.bind("SUPER + T",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + SHIFT + T", hl.dsp.window.pin())
+
+hl.bind("SUPER + LEFT",   hl.dsp.focus({ direction = "l" }))
+hl.bind("SUPER + RIGHT",  hl.dsp.focus({ direction = "r" }))
+hl.bind("SUPER + UP",     hl.dsp.focus({ direction = "u" }))
+hl.bind("SUPER + DOWN",   hl.dsp.focus({ direction = "d" }))
+
+hl.bind("SUPER + SHIFT + LEFT",   hl.dsp.window.swap({ direction = "l" }))
+hl.bind("SUPER + SHIFT + RIGHT",  hl.dsp.window.swap({ direction = "r" }))
+hl.bind("SUPER + SHIFT + UP",     hl.dsp.window.swap({ direction = "u" }))
+hl.bind("SUPER + SHIFT + DOWN",   hl.dsp.window.swap({ direction = "d" }))
+
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(),    { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(),  { mouse = true })
+
+-- Workspace controls ---------------------------------------------------------:
+for workspace = 1, 10 do
+	local key = "code:" .. tostring(workspace + 9)
+	hl.bind("SUPER + "                .. key, hl.dsp.focus(      { workspace = tostring(workspace) }))
+	hl.bind("SUPER + SHIFT + "        .. key, hl.dsp.window.move({ workspace = tostring(workspace) }))
+	hl.bind("SUPER + SHIFT + ALT + "  .. key, hl.dsp.window.move({ workspace = tostring(workspace), follow = false }))
+end
+
+hl.bind("SUPER + S",        hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind("SUPER + ALT + S",  hl.dsp.window.move({ workspace = "special:scratchpad", follow = true }))
+
+-- Clipboard ------------------------------------------------------------------:
+
+hl.bind("SUPER + C", function() send_shortcut_once("CTRL", "Insert")  end)
+hl.bind("SUPER + V", function() send_shortcut_once("SHIFT", "Insert") end)
+hl.bind("SUPER + X", function() send_shortcut_once("CTRL", "X")       end)
+hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("walker -m clipboard"))
+
+-- Volume, brightness, keyboard backlight, and touchpad controls.
+hl.bind("XF86AudioRaiseVolume",   hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05+"),   { repeating = true, locked = true }) 
+hl.bind("XF86AudioLowerVolume",   hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05-"),   { repeating = true, locked = true }) 
+hl.bind("XF86AudioMute",          hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"),    { repeating = true, locked = true })
+hl.bind("XF86AudioMicMute",       hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),  { repeating = true, locked = true })
+hl.bind("XF86MonBrightnessUp",    hl.dsp.exec_cmd("brightnessctl set 10%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("brightnessctl set 10%-"), { locked = true, repeating = true })
+
+-- Precise volume and brightness controls.
+
+-- Media controls.
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),        { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"),  { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"),  { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),    { locked = true })
+
+-- Menus ----------------------------------------------------------------------:
+hl.bind("SUPER + SPACE", function() launch("walker") end)
+
+-- Other controls -------------------------------------------------------------:
+hl.bind("SUPER + SHIFT + SPACE", hl.dsp.exec_cmd("quickshell kill ; quickshell"))
+-- hl.bind("SUPER + CTRL + SPACE", ...)  -- was `omarchy-menu background` (omarchy's wallpaper picker); no native equivalent. Re-bind to your own wallpaper script if wanted.
+
+hl.bind("SUPER + COMMA",          hl.dsp.exec_cmd("makoctl dismiss"))
+hl.bind("SUPER + SHIFT + COMMA",  hl.dsp.exec_cmd("makoctl dismiss --all"))
+hl.bind("SUPER + CTRL + COMMA",   hl.dsp.exec_cmd("makoctl mode -t do-not-disturb"))
+hl.bind("SUPER + ALT + COMMA",    hl.dsp.exec_cmd("makoctl invoke"))
+
+hl.bind("SUPER + CTRL + I", hl.dsp.exec_cmd("pkill hypridle || hypridle"))         -- toggle idle daemon (movies etc.)
+hl.bind("SUPER + CTRL + N", hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 4000"))  -- toggle nightlight
+
+-- o.bind("switch:on:Lid Switch", nil, "omarchy-hw-external-monitors && omarchy-hyprland-monitor-internal off", { locked = true })
+-- o.bind("switch:off:Lid Switch", nil, "omarchy-hyprland-monitor-internal on", { locked = true })
+
+hl.bind("PRINT",          hl.dsp.exec_cmd("hyprshot --clipboard-only -m region"))
+hl.bind("SUPER + PRINT",  hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -a"))

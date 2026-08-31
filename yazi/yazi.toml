@@ -31,14 +31,17 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = "codium -n %s",     desc = "$EDITOR",      for = "unix", block = true },
+	{ run = "$EDITOR %s",     desc = "$EDITOR",      for = "unix", block = true },
 ]
 play = [
 	{ run = "xdg-open %s1",    desc = "Play", for = "linux", orphan = true },
 	{ run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
 ]
 open = [
-	{ run = "codium -n %s1",    desc = "Open", for = "linux" },
+	{ run = "xdg-open %s1",    desc = "Open", for = "linux"},
+]
+openfolder = [
+	{ run = "codium %s", desc = "open folder", for = "linux" }
 ]
 reveal = [
 	{ run = "xdg-open %d1",         desc = "Reveal", for = "linux" },
@@ -55,7 +58,7 @@ download = [
 [open]
 rules = [
 	# Folder
-	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "openfolder", "edit", "open", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image

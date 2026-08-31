@@ -10,7 +10,7 @@ for ws = 6, 10 do
     monitor   = "HDMI-A-1",
   }) end
 
-float_size = { 800, 600 }
+float_size = { 1000, 600 }
 float_list = { "mpv", "bitwarden", "localsend", "^.*ant_simulator_7.*$", "Minecraft.*" }
 
 

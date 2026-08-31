@@ -132,6 +132,8 @@ keymap = [
 	{ on = [ "g", "h" ],       run = "cd ~/.config/hypr",	desc = "Go ~/.config/hypr" },
 	{ on = [ "g", "n" ],       run = "cd ~/NTNU",     		desc = "Go ~/NTNU" },
 
+	{ on = [ "g", "e" ], 			 run = "cd /etc", 					desc = "Go /etc" },
+	
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", 	desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",           	desc = "Follow hovered symlink" },
 

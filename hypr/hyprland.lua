@@ -26,12 +26,12 @@ hl.monitor({
 hl.on("hyprland.start", function()
   hl.exec_cmd("dbus-update-activation-environment --all")  -- push session env (WAYLAND_DISPLAY, HYPRLAND_INSTANCE_SIGNATURE, ...) into the dbus session bus
   hl.exec_cmd("gentoo-pipewire-launcher")  -- start pipewire + pipewire-pulse + wireplumber (OpenRC has no systemd user units); relies on the dbus session env pushed above
-  hl.exec_cmd("$HOME/.config/quickshell/scripts/osd.sh init")  -- pre-create OSD state file so it doesn't pop on login
-  hl.exec_cmd("quickshell kill ; quickshell")
-  -- hl.exec_cmd("elephant")
+  -- hl.exec_cmd("$HOME/.config/quickshell/scripts/osd.sh init")  -- pre-create OSD state file so it doesn't pop on login
+  -- hl.exec_cmd("quickshell kill ; quickshell")
+  hl.exec_cmd("waybar")
   -- hl.exec_cmd("walker --gapplication-service")
   hl.exec_cmd("$HOME/.config/theme/wallpaper.sh init")  -- starts hyprpaper + restores last wallpaper
-  hl.exec_cmd("hypridle")
+  -- hl.exec_cmd("hypridle")
 end
 )
 
