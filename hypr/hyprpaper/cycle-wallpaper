@@ -1,0 +1,20 @@
+#!/bin/sh
+
+WP=${HOME}/Pictures/wallpapers
+CONF=$HOME/.config/hypr/hyprpaper
+
+index=$CONF/numbers.txt
+
+cat $index
+
+max=$(ls -1 $WP | wc -l)
+
+if [ $index -le max ]; then
+	if [ $WP/]
+fi
+
+echo $max
+
+
+
+# hyprctl hyprpaper wallpaper ",${DIR}/lexus.jpg"

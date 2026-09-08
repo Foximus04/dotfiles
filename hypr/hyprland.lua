@@ -8,7 +8,8 @@ require("hypr.rules")
 hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
 hl.env("HYPRCURSOR_SIZE", "24")
 
-hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
+
+-- hl.unbind("SUPER + RETURN") hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
 
 for _,m in ipairs(hl.get_monitors()) do
 	hl.monitor({
@@ -33,6 +34,8 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("gentoo-pipewire-launcher")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("mako")
+	hl.exec_cmd("hyprpaper")
+
 
   -- hl.exec_cmd("$HOME/.config/theme/wallpaper.sh init")
   -- hl.exec_cmd("hypridle")
