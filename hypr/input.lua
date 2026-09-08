@@ -5,6 +5,8 @@ hl.config({
     kb_layout  = "gb,no",
     kb_options = "grp:alt_shift_toggle",
 
+		numlock_by_default = true,
+		
     repeat_rate  = 80,
     repeat_delay = 250,
 

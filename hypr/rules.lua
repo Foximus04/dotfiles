@@ -1,14 +1,12 @@
 -- Workspace rules ------------------------------------------------------------:
-for ws = 1, 5 do
-  hl.workspace_rule({ 
-    workspace = ws,
-    monitor   = "eDP-1",
-  }) end
-for ws = 6, 10 do
-  hl.workspace_rule({ 
-    workspace = ws,
-    monitor   = "HDMI-A-1",
-  }) end
+monitors = hl.get_monitors()
+
+if #monitors == 2 then for ws = 1, 10 do
+	hl.workspace_rule({
+		workspace = ws,
+		monitor = monitors[ws % 2 + 1].name,
+	})
+end end
 
 float_size = { 1000, 600 }
 float_list = { "mpv", "bitwarden", "localsend", "^.*ant_simulator_7.*$", "Minecraft.*" }
