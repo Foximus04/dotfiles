@@ -1,3 +1,5 @@
 {
-	"tabsize": 2
+    "detectindent": false,
+    "lsp.formatOnSave": false,
+    "tabsize": 2
 }

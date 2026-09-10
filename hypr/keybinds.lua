@@ -97,11 +97,11 @@ hl.bind("SUPER + ALT + SEMICOLON", hl.dsp.exec_cmd("~/.local/bin/get-window-prop
 
 -- Window controls ------------------------------------------------------------:
 hl.bind("SUPER + F",        	    hl.dsp.window.fullscreen({ mode = "maximized",  action = "toggle" }))
-hl.bind("SUPER + SHIFT + F",  	  hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
-hl.bind("SUPER + W",          	  hl.dsp.window.close())
+hl.bind("SUPER + SHIFT + F",  	    hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind("SUPER + W",          	    hl.dsp.window.close())
 
 hl.bind("SUPER + J",         	    hl.dsp.layout("togglesplit"))
-hl.bind("SUPER + P",              hl.dsp.window.pseudo())
+hl.bind("SUPER + P",                hl.dsp.window.pseudo())
 hl.bind("SUPER + T",         	    hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + SHIFT + T", 	    hl.dsp.window.pin())
 
@@ -110,10 +110,15 @@ hl.bind("SUPER + RIGHT",  		    hl.dsp.focus({ direction = "r" }))
 hl.bind("SUPER + UP",     		    hl.dsp.focus({ direction = "u" }))
 hl.bind("SUPER + DOWN",   		    hl.dsp.focus({ direction = "d" }))
 
-hl.bind("SUPER + SHIFT + LEFT",   hl.dsp.window.swap({ direction = "l" }))
-hl.bind("SUPER + SHIFT + RIGHT",  hl.dsp.window.swap({ direction = "r" }))
-hl.bind("SUPER + SHIFT + UP",     hl.dsp.window.swap({ direction = "u" }))
-hl.bind("SUPER + SHIFT + DOWN",   hl.dsp.window.swap({ direction = "d" }))
+hl.bind("SUPER + SHIFT + LEFT",     hl.dsp.window.swap({ direction = "l" }))
+hl.bind("SUPER + SHIFT + RIGHT",    hl.dsp.window.swap({ direction = "r" }))
+hl.bind("SUPER + SHIFT + UP",       hl.dsp.window.swap({ direction = "u" }))
+hl.bind("SUPER + SHIFT + DOWN",     hl.dsp.window.swap({ direction = "d" }))
+
+hl.bind("SUPER + CTRL + LEFT",      hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + RIGHT",     hl.dsp.window.resize({ x = 10,  y = 0, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + UP",        hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + DOWN",      hl.dsp.window.resize({ x = 0, y = 10 , relative = true }), { repeating = true })
 
 hl.bind("SUPER + mouse:272", 	    hl.dsp.window.drag(),    { mouse = true })
 hl.bind("SUPER + mouse:273", 	    hl.dsp.window.resize(),  { mouse = true })
