@@ -1,33 +1,36 @@
 * {
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 	font-family: 'JetBrainsMono Nerd Font';
+	/* font-size: ; */
 	margin: 0;
 	border-radius: 0;
 }
 #window {
 	background-color: #100510;
-	border: 3px solid #600080;
+	border: 5px solid #600080;
 	color: #ffffff;
-	opacity: 20%;
+	/* opacity: 50%; */
+
 }
 #outer-box {
-	border: 2px solid #600080;
-	margin: 20px;
+	/* border: 2px solid #600080; */
+	margin: 30px;
 }
 
 #input {
+	/* width: 500px; */
 	background-color: inherit;
 	color: inherit;
 	padding: 1rem;
 	margin: 1rem;
 }
 #input:first-child > :nth-child(1) {
-	/* color: #00000000; */
-	opacity: ;
+	/* color: #00000000;
+	opacity: ; */
 }
 
 /* Item list: */
-#inner-box {
+#scroll {
 	border: 2px solid blue;
 }
 .entry {

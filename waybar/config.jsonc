@@ -12,12 +12,11 @@
         "sway/window"
     ],
     "modules-right": [
+        "tray",
         "temperature",
         "network",
         "hyprland/language",
-        "battery",
-        "battery#bat2",
-        "tray"
+        "battery"
     ],
     // Modules:
 
@@ -83,9 +82,9 @@
     },
     "clock": {
         "interval":1,
-        "format": "{:%D │ %H:%M:%S}",
+        "format": "{:%d/%m/%y │ %T}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%A, week %W}"
+        "format-alt": "{:%A, week %V}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -107,9 +106,18 @@
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
+    "network": {
+        "interface": "wlp0s2*", // (Optional) To force the use of this interface
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -119,9 +127,6 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
     },
     "power-profiles-daemon": {
       "format": "{icon}",
@@ -133,15 +138,6 @@
         "balanced": "",
         "power-saver": ""
       }
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

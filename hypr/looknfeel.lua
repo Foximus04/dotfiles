@@ -46,7 +46,7 @@ hl.curve("bez1", { type = "bezier", points = {{ 0.25, 0.1 },{ 0.3, 1. }} })
 hl.animation({
   enabled = true,
   leaf  = "windows",
-  speed = 1.5,
+  speed = 1,
   bezier = "bez1",
   style = "gnomed"
 })
