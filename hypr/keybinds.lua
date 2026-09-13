@@ -64,6 +64,7 @@ hl.bind("SUPER + M",     			function() launch("spotify",	{ focus = true }) end)
 hl.bind("SUPER + B",     			function() launch("firefox") end)      
 hl.bind("SUPER + D",     			function() launch("flatpak run dev.vencord.Vesktop",	        { altname = "vesktop",   focus = true, rules = { workspace = "special:scratchpad" } }) end)
 hl.bind("SUPER + SLASH", 			function() launch("flatpak run com.bitwarden.desktop", 	      { altname = "bitwarden", focus = true, float = true }) end)
+hl.bind("SUPER + SLASH", 			function() launch("bitwarden-desktop-bin", 	      						{ focus = true, float = true }) end)
 hl.bind("SUPER + L", 			    function() launch("flatpak run org.localsend.localsend_app", 	{ altname = "localsend", focus = true, float = true }) end)
 
 hl.bind("SUPER + SPACE", 			hl.dsp.exec_cmd("~/bin/wofi-run.sh drun"))
@@ -79,10 +80,10 @@ hl.bind("SUPER + CTRL + T", function() launch("btop",   	{ tui = true, focus = t
 hl.bind("SUPER + CTRL + I", 	        	hl.dsp.exec_cmd("pkill hypridle || hypridle"))
 hl.bind("SUPER + CTRL + N", 	        	hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 4000")) 
 hl.bind("SUPER + CTRL + L", 	        	hl.dsp.exec_cmd("hyprlock"))
-hl.bind("SUPER + CTRL + R", 	        	hl.dsp.exec_cmd("/home/fox/.config/theme/apply.sh"))
+-- hl.bind("SUPER + CTRL + R", 	        	hl.dsp.exec_cmd("/home/fox/.config/theme/apply.sh"))
 hl.bind("SUPER + CTRL + COMMA",         hl.dsp.exec_cmd("makoctl mode -t do-not-disturb"))
-hl.bind("SUPER + CTRL + SPACE",         hl.dsp.exec_cmd("/home/fox/.config/theme/wallpaper.sh next"))
-hl.bind("SUPER + CTRL + SHIFT + SPACE", hl.dsp.exec_cmd("/home/fox/.config/theme/apply.sh"))
+-- hl.bind("SUPER + CTRL + SPACE",         hl.dsp.exec_cmd("/home/fox/.config/theme/wallpaper.sh next"))
+-- hl.bind("SUPER + CTRL + SHIFT + SPACE", hl.dsp.exec_cmd("/home/fox/.config/theme/apply.sh"))
 hl.bind("SUPER + ALT + SPACE", 					hl.dsp.exec_cmd("pkill waybar ; waybar"))
 
 
@@ -92,16 +93,16 @@ hl.bind("SUPER + F2", function() web_shortcut("https://wiki.gentoo.org/wiki/Hand
 
 
 -- Debug stuff:
-hl.bind("SUPER + ALT + SEMICOLON", hl.dsp.exec_cmd("~/.local/bin/get-window-property.sh class"))
+-- hl.bind("SUPER + ALT + SEMICOLON", hl.dsp.exec_cmd("~/.local/bin/get-window-property.sh class"))
 
 
 -- Window controls ------------------------------------------------------------:
 hl.bind("SUPER + F",        	    hl.dsp.window.fullscreen({ mode = "maximized",  action = "toggle" }))
-hl.bind("SUPER + SHIFT + F",  	    hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
-hl.bind("SUPER + W",          	    hl.dsp.window.close())
+hl.bind("SUPER + SHIFT + F",  	  hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind("SUPER + W",          	  hl.dsp.window.close())
 
 hl.bind("SUPER + J",         	    hl.dsp.layout("togglesplit"))
-hl.bind("SUPER + P",                hl.dsp.window.pseudo())
+hl.bind("SUPER + P",              hl.dsp.window.pseudo())
 hl.bind("SUPER + T",         	    hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + SHIFT + T", 	    hl.dsp.window.pin())
 
@@ -158,8 +159,7 @@ hl.bind("XF86AudioPrev",  			hl.dsp.exec_cmd("playerctl previous"),    { locked 
 -- Menus ----------------------------------------------------------------------:
 
 -- Other controls -------------------------------------------------------------:
--- Notifications:
-hl.bind("SUPER + SHIFT + SPACE",  hl.dsp.exec_cmd("systemctl --user restart quickshell"))
+--  Notifications:
 hl.bind("SUPER + COMMA",          hl.dsp.exec_cmd("makoctl dismiss"))
 hl.bind("SUPER + SHIFT + COMMA",  hl.dsp.exec_cmd("makoctl dismiss --all"))
 hl.bind("SUPER + ALT + COMMA",    hl.dsp.exec_cmd("makoctl invoke"))

@@ -1,7 +1,7 @@
 {
-    "CtrlDelete": "DeleteWordRight",
-    "\x1bctrlback"	: "DeleteWordLeft",
-    "\x1bctrlleft"	: "SelectWordLeft",
-    "\x1bctrlright"	: "SelectWordRight"
-    
+    "CtrlDelete"		: "DeleteWordRight",
+    "CtrlShiftLeft"	: "SelectWordLeft",
+    "CtrlShiftRight": "SelectWordRight",
+    "CtrlShiftUp"		: "SpawnMultiCursorUp",
+    "CtrlShiftDown"	: "SpawnMultiCursorDown"
 }

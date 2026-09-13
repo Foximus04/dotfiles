@@ -1,4 +1,7 @@
-
 [Default Applications]
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/obsidian=obsidian.desktop
+x-scheme-handler/bitwarden=bitwarden.desktop
+
+[Added Associations]
+x-scheme-handler/bitwarden=bitwarden.desktop;
