@@ -8,6 +8,7 @@ require("hypr.style")
 
 hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("GTK_THEME", "dark")
 
 
 -- hl.unbind("SUPER + RETURN") hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
