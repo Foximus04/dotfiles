@@ -4,8 +4,8 @@ hl.env("XCURSOR_THEME", "Empty-Butterfly-White")
 hl.env("XCURSOR_SIZE", 24)
 hl.config({
   general = {
-    gaps_in     = 1,
-    gaps_out    = 1,
+    gaps_in     = 0,
+    gaps_out    = 0,
     border_size = 1,
     
     layout = "dwindle",
@@ -17,18 +17,7 @@ hl.config({
     },
   },
 
-  decoration = {
-    active_opacity   = 0.96,
-    inactive_opacity = 0.80,
-
-    blur = {
-      size       = 10,
-      passes     = 4,
-      noise      = 0.0,
-      contrast   = 0.9,
-      brightness = 0.9,
-    }
-  },
+  
   dwindle = {
     preserve_split = true,
   },

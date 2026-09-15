@@ -1,7 +1,8 @@
 {
-    "CtrlDelete"		: "DeleteWordRight",
-    "CtrlShiftLeft"	: "SelectWordLeft",
+    "Ctrl-y": "Redo",
+    "CtrlDelete": "DeleteWordRight",
+    "CtrlShiftDown": "SpawnMultiCursorDown",
+    "CtrlShiftLeft": "SelectWordLeft",
     "CtrlShiftRight": "SelectWordRight",
-    "CtrlShiftUp"		: "SpawnMultiCursorUp",
-    "CtrlShiftDown"	: "SpawnMultiCursorDown"
+    "CtrlShiftUp": "SpawnMultiCursorUp"
 }

@@ -31,6 +31,9 @@ for _, v in ipairs(float_list) do
   })
 end
 
-hl.window_rule({ match = { class = "firefox" },   opacity = "1.0 override 0.96 override" })
-hl.window_rule({ match = { class = "kitty" },     scroll_touchpad = 1.5 })
 hl.window_rule({ match = { class = "^.*.py.*$" }, opacity = "1.0 override 0.8" })
+hl.window_rule({
+	match = { class = "kitty" },
+	scroll_touchpad = 1.5,
+	-- opacity = "1 override 0.75 override"
+	})

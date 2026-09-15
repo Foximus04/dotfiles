@@ -116,10 +116,10 @@ hl.bind("SUPER + SHIFT + RIGHT",    hl.dsp.window.swap({ direction = "r" }))
 hl.bind("SUPER + SHIFT + UP",       hl.dsp.window.swap({ direction = "u" }))
 hl.bind("SUPER + SHIFT + DOWN",     hl.dsp.window.swap({ direction = "d" }))
 
-hl.bind("SUPER + CTRL + LEFT",      hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + RIGHT",     hl.dsp.window.resize({ x = 10,  y = 0, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + UP",        hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
-hl.bind("SUPER + CTRL + DOWN",      hl.dsp.window.resize({ x = 0, y = 10 , relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + LEFT",      hl.dsp.window.resize({ x = -64, y = 0, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + RIGHT",     hl.dsp.window.resize({ x = 64,  y = 0, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + UP",        hl.dsp.window.resize({ x = 0, y = -64, relative = true }), { repeating = true })
+hl.bind("SUPER + CTRL + DOWN",      hl.dsp.window.resize({ x = 0, y = 64 , relative = true }), { repeating = true })
 
 hl.bind("SUPER + mouse:272", 	    hl.dsp.window.drag(),    { mouse = true })
 hl.bind("SUPER + mouse:273", 	    hl.dsp.window.resize(),  { mouse = true })
@@ -145,7 +145,7 @@ hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("walker -m clipboard"))
 -- 	Volume
 hl.bind("XF86AudioRaiseVolume",   	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05+ && $HOME/bin/mako-osd.sh volume"), 	{ repeating = true, locked = true })
 hl.bind("XF86AudioLowerVolume",   	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05- && $HOME/bin/mako-osd.sh volume"), 	{ repeating = true, locked = true })
-hl.bind("XF86AudioMute",          	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle &&  $HOME/bin/mako-osd.sh mute"),  	{ repeating = true, locked = true })
+hl.bind("XF86AudioMute",          	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle &&  $HOME/bin/mako-osd.sh volume"),  	{ repeating = true, locked = true })
 hl.bind("XF86AudioMicMute",       	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),	{ repeating = true, locked = true })
 -- 	Brightness
 hl.bind("XF86MonBrightnessUp",    	hl.dsp.exec_cmd("brightnessctl --class=backlight s 10%+ && $HOME/bin/mako-osd.sh brightness"), 	 { locked = true, repeating = true })

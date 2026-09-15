@@ -4,4 +4,3 @@ x-scheme-handler/obsidian=obsidian.desktop
 x-scheme-handler/bitwarden=bitwarden.desktop
 
 [Added Associations]
-x-scheme-handler/bitwarden=bitwarden.desktop;

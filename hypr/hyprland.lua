@@ -4,6 +4,7 @@ require("hypr.keybinds")
 require("hypr.looknfeel")
 require("hypr.input")
 require("hypr.rules")
+require("hypr.style")
 
 hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
 hl.env("HYPRCURSOR_SIZE", "24")
