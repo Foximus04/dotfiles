@@ -6,9 +6,13 @@ require("hypr.input")
 require("hypr.rules")
 require("hypr.style")
 
-hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("GTK_THEME", "dark")
+-- hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
+-- hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "Empty-Butterfly-White")
+hl.env("XCURSOR_SIZE", "24")
+-- GTK_THEME overrides settings.ini AND gtk-application-prefer-dark-theme,
+-- and hides typos as "no theme at all". Use ~/.config/gtk-3.0/settings.ini instead.
+-- hl.env("GTK_THEME", "my-gtk-theme")
 
 
 -- hl.unbind("SUPER + RETURN") hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))

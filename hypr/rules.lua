@@ -1,12 +1,18 @@
 -- Workspace rules ------------------------------------------------------------:
 monitors = hl.get_monitors()
 
-if #monitors == 2 then for ws = 1, 10 do
-	hl.workspace_rule({
-		workspace = ws,
-		monitor = monitors[ws % 2 + 1].name,
-	})
-end end
+if #monitors == 2 then 
+	hl.workspace_rule({ workspace = 1, monitor = monitors[1].name })
+	hl.workspace_rule({ workspace = 2, monitor = monitors[2].name })
+	hl.workspace_rule({ workspace = 3, monitor = monitors[1].name })
+	hl.workspace_rule({ workspace = 4, monitor = monitors[2].name })
+	hl.workspace_rule({ workspace = 5, monitor = monitors[1].name })
+	hl.workspace_rule({ workspace = 6, monitor = monitors[2].name })
+	hl.workspace_rule({ workspace = 7, monitor = monitors[1].name })
+	hl.workspace_rule({ workspace = 8, monitor = monitors[2].name })
+	hl.workspace_rule({ workspace = 9, monitor = monitors[1].name })
+	hl.workspace_rule({ workspace = 10,monitor = monitors[2].name })
+end
 
 float_size = { 1000, 600 }
 float_list = { "mpv", "bitwarden", "localsend", "^.*ant_simulator_7.*$", "Minecraft.*" }
