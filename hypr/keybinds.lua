@@ -167,3 +167,25 @@ hl.bind("SUPER + ALT + COMMA",    hl.dsp.exec_cmd("makoctl invoke"))
 -- Screenshot:
 hl.bind("PRINT",          hl.dsp.exec_cmd("hyprshot --clipboard-only -m region"))
 hl.bind("SUPER + PRINT",  hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -a"))
+
+
+-- Miscellaneous:
+--  NUMPAD: 7 8 9
+hl.bind("CTRL + code:79", hl.dsp.exec_cmd("wtype '┌'")) 
+hl.bind("CTRL + code:80", hl.dsp.exec_cmd("wtype '┬'"))
+hl.bind("CTRL + code:81", hl.dsp.exec_cmd("wtype '┐'"))
+
+--  NUMPAD: 4 5 6
+hl.bind("CTRL + code:83", hl.dsp.exec_cmd("wtype '├'"))
+hl.bind("CTRL + code:84", hl.dsp.exec_cmd("wtype '┼'"))
+hl.bind("CTRL + code:85", hl.dsp.exec_cmd("wtype '┤'"))
+
+--  NUMPAD: 1 2 3
+hl.bind("CTRL + code:87", hl.dsp.exec_cmd("wtype '└'"))
+hl.bind("CTRL + code:88", hl.dsp.exec_cmd("wtype '┴'"))
+hl.bind("CTRL + code:89", hl.dsp.exec_cmd("wtype '┘'"))
+
+-- NUMPAD: 0 .
+hl.bind("CTRL + code:90", hl.dsp.exec_cmd("wtype '─'"))
+hl.bind("CTRL + code:91", hl.dsp.exec_cmd("wtype '│'"))
+
