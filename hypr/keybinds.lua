@@ -54,6 +54,27 @@ hl.config({
     }
 })
 
+local function triple_panes()
+  local ws = hl.get_active_workspace()
+  if ws.windows == 3 then
+
+    W = hl.get_active_monitor().size.x
+    
+    w = ws.get_windows()
+    table.sort(w, function(a,b) return a.x < b.x end)
+
+    w[2].floating = true
+    w[3].floating = true
+
+    w[2].at = { x = W*.6 }
+    w[2].floating = false
+        
+    w[3].at = { x = W*.9 }
+    w[3].floating = false
+    
+  end
+end
+
 
 -- Launch ---------------------------------------------------------------------:
 hl.bind("SUPER + RETURN", 		function() launch(terminal) end)
@@ -88,8 +109,8 @@ hl.bind("SUPER + ALT + SPACE", 					hl.dsp.exec_cmd("pkill waybar ; waybar"))
 
 
 -- Web shortcuts:
-hl.bind("SUPER + F1", function() web_shortcut("https://wiki.hypr.land/Configuring/Basics/Dispatchers/") end)
-hl.bind("SUPER + F2", function() web_shortcut("https://wiki.gentoo.org/wiki/Handbook:AMD64") end)
+-- hl.bind("SUPER + F1", function() web_shortcut("https://wiki.hypr.land/Configuring/Basics/Dispatchers/") end)
+-- hl.bind("SUPER + F2", function() web_shortcut("https://wiki.gentoo.org/wiki/Handbook:AMD64") end)
 
 
 -- Debug stuff:
@@ -123,6 +144,8 @@ hl.bind("SUPER + CTRL + DOWN",      hl.dsp.window.resize({ x = 0, y = 64 , relat
 
 hl.bind("SUPER + mouse:272", 	    hl.dsp.window.drag(),    { mouse = true })
 hl.bind("SUPER + mouse:273", 	    hl.dsp.window.resize(),  { mouse = true })
+
+hl.bind("SUPER + F1", function() triple_panes() end)
 
 -- Workspace controls ---------------------------------------------------------:
 for workspace = 1, 10 do

@@ -2,5 +2,6 @@
     "colorscheme": "dracula-tc",
     "detectindent": false,
     "lsp.formatOnSave": false,
-    "tabsize": 2
+    "tabsize": 2,
+    "tabstospaces": true
 }
