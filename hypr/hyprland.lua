@@ -5,6 +5,7 @@ require("hypr.looknfeel")
 require("hypr.input")
 require("hypr.rules")
 require("hypr.style")
+require("hypr.noctalia-keybinds")
 
 -- hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-White")
 -- hl.env("HYPRCURSOR_SIZE", "24")
@@ -38,9 +39,10 @@ hl.monitor({
 hl.on("hyprland.start", function()
   hl.exec_cmd("dbus-update-activation-environment --all")
   hl.exec_cmd("gentoo-pipewire-launcher")
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("mako")
-	hl.exec_cmd("hyprpaper")
+	-- hl.exec_cmd("waybar")
+	-- hl.exec_cmd("mako")
+	-- hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("noctalia")
 
 
   -- hl.exec_cmd("$HOME/.config/theme/wallpaper.sh init")

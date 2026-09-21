@@ -105,7 +105,7 @@ hl.bind("SUPER + CTRL + L", 	        	hl.dsp.exec_cmd("hyprlock"))
 hl.bind("SUPER + CTRL + COMMA",         hl.dsp.exec_cmd("makoctl mode -t do-not-disturb"))
 -- hl.bind("SUPER + CTRL + SPACE",         hl.dsp.exec_cmd("/home/fox/.config/theme/wallpaper.sh next"))
 -- hl.bind("SUPER + CTRL + SHIFT + SPACE", hl.dsp.exec_cmd("/home/fox/.config/theme/apply.sh"))
-hl.bind("SUPER + ALT + SPACE", 					hl.dsp.exec_cmd("pkill waybar ; waybar"))
+hl.bind("SUPER + ALT + SPACE", 					hl.dsp.exec_cmd("pkill waybar ; waybar ; pkill hyprpaper ; hyprpaper"))
 
 
 -- Web shortcuts:
@@ -169,6 +169,7 @@ hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("walker -m clipboard"))
 hl.bind("XF86AudioRaiseVolume",   	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05+ && $HOME/bin/mako-osd.sh volume"), 	{ repeating = true, locked = true })
 hl.bind("XF86AudioLowerVolume",   	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05- && $HOME/bin/mako-osd.sh volume"), 	{ repeating = true, locked = true })
 hl.bind("XF86AudioMute",          	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle &&  $HOME/bin/mako-osd.sh volume"),  	{ repeating = true, locked = true })
+hl.bind("XF86AudioMute",          	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"),  	{ repeating = true, locked = true })
 hl.bind("XF86AudioMicMute",       	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),	{ repeating = true, locked = true })
 -- 	Brightness
 hl.bind("XF86MonBrightnessUp",    	hl.dsp.exec_cmd("brightnessctl --class=backlight s 10%+ && $HOME/bin/mako-osd.sh brightness"), 	 { locked = true, repeating = true })
