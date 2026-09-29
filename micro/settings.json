@@ -3,5 +3,6 @@
     "detectindent": false,
     "lsp.formatOnSave": false,
     "tabsize": 2,
-    "tabstospaces": true
+    "tabstospaces": true,
+    "bufdir": "/home/fox/.local/state/micro/buffers"
 }
